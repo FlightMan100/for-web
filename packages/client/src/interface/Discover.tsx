@@ -24,7 +24,11 @@ export function Discover() {
     if (!frame) return;
 
     const url = new URL(message.origin);
+<<<<<<< HEAD
     if (url.origin !== "https://discovery.otiscord.otisthings.xyz") return;
+=======
+    if (url.origin !== "https://stt.gg") return;
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 
     const data = JSON.parse(message.data);
     console.info(data);
@@ -88,7 +92,11 @@ export function Discover() {
   // Render the URL once, update path in browser through messaging
   const query = new URLSearchParams(location.query as Record<string, string>);
   query.set("embedded", "true");
+<<<<<<< HEAD
   const src = `https://discovery.otiscord.otisthings.xyz/${location.pathname}?${query}`;
+=======
+  const src = `https://stt.gg/${location.pathname}?${query}`;
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 
   return <Base ref={setRef} src={src} />;
 }

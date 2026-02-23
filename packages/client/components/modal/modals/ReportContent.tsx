@@ -204,7 +204,12 @@ export function ReportContentModal(
 const contentContainer = cva({
   base: {
     maxWidth: "100%",
+<<<<<<< HEAD
     maxHeight: "240px",
+=======
+    maxHeight: "80vh",
+    overflowY: "hidden",
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
     "& > div": {
       marginTop: "0 !important",
       pointerEvents: "none",

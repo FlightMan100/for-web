@@ -15,7 +15,10 @@ import badgePaw from "../../../../../public/assets/badges/paw.svg";
 import badgeRaccoon from "../../../../../public/assets/badges/raccoon.svg";
 import badgeSupporter from "../../../../../public/assets/badges/supporter.svg";
 import badgeTranslator from "../../../../../public/assets/badges/translator.svg";
+<<<<<<< HEAD
 import badgeOtisThings from "../../../../../public/assets/badges/otisthings.png";
+=======
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 import { Text } from "../../design";
 
 import { ProfileCard } from "./ProfileCard";
@@ -36,7 +39,11 @@ export function ProfileBadges(props: { user: User }) {
               use:floating={{
                 tooltip: {
                   placement: "top",
+<<<<<<< HEAD
                   content: `OtisCord Founder`,
+=======
+                  content: t`Stoat Founder`,
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
                 },
               }}
               src={badgeFounder}
@@ -124,7 +131,11 @@ export function ProfileBadges(props: { user: User }) {
             />
           </Show>
           <Show
+<<<<<<< HEAD
             when={props.user.badges & UserBadges.ReservedRelevantJokeBadge2}
+=======
+            when={props.user.badges & UserBadges.ReservedRelevantJokeBadge1}
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
           >
             <img
               use:floating={{
@@ -136,6 +147,7 @@ export function ProfileBadges(props: { user: User }) {
               src={badgeJoke2}
             />
           </Show>
+<<<<<<< HEAD
           <Show when={props.user.badges & UserBadges.OtisThingsEmployee}>
             <img
               src={badgeOtisThings}
@@ -147,6 +159,8 @@ export function ProfileBadges(props: { user: User }) {
               }}
             />
           </Show>
+=======
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
           <Show when={props.user.badges & UserBadges.Paw}>
             <img
               use:floating={{
@@ -187,4 +201,8 @@ const BadgeRow = styled("div", {
       aspectRatio: "1/1",
     },
   },
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522

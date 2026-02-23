@@ -177,7 +177,11 @@ export function UserContextMenu(props: {
    */
   function openAdminPanel() {
     window.open(
+<<<<<<< HEAD
       `https://legacy-admin.stoatinternal.com/panel/inspect/user/${props.user.id}`,
+=======
+      `https://old-admin.stoatinternal.com/panel/inspect/user/${props.user.id}`,
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
       "_blank",
     );
   }

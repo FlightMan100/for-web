@@ -28,17 +28,43 @@ import {
   ConversationStart,
   Deferred,
   JumpToBottom,
+<<<<<<< HEAD
   ListView,
   MessageDivider,
 } from "@revolt/ui";
 
+=======
+  MessageDivider,
+} from "@revolt/ui";
+
+import {
+  ListView2,
+  ListView2Update,
+} from "@revolt/ui/components/utils/ListView2";
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 import { Message } from "./Message";
 import { useMessageCache } from "./MessageCache";
 
 /**
+<<<<<<< HEAD
  * Default fetch limit
  */
 const DEFAULT_FETCH_LIMIT = 50;
+=======
+ * Initial fetch limit
+ */
+const INITIAL_FETCH_LIMIT = 30;
+
+/**
+ * Fetch limit
+ */
+const FETCH_LIMIT = 50;
+
+/**
+ * Display limit
+ */
+const DISPLAY_LIMIT = 150;
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 
 interface Props {
   /**
@@ -47,6 +73,7 @@ interface Props {
   channel: Channel;
 
   /**
+<<<<<<< HEAD
    * Limit to number of messages to fetch at a time
    */
   fetchLimit?: number;
@@ -57,6 +84,8 @@ interface Props {
   limit?: number;
 
   /**
+=======
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
    * Pending messages to render at the end of the list
    */
   pendingMessages?: (props: { tail: boolean; ids: string[] }) => JSX.Element;
@@ -226,7 +255,11 @@ export function Messages(props: Props) {
       } else {
         messages = await props.channel
           .fetchMessagesWithUsers({
+<<<<<<< HEAD
             limit: props.fetchLimit,
+=======
+            limit: INITIAL_FETCH_LIMIT,
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
             nearby,
           })
           .then(({ messages }) => messages);
@@ -247,10 +280,14 @@ export function Messages(props: Props) {
         );
       }
       // Check if we're at the start of the conversation otherwise
+<<<<<<< HEAD
       else if (
         !useExistingState &&
         messages.length < (props.fetchLimit ?? DEFAULT_FETCH_LIMIT)
       ) {
+=======
+      else if (!useExistingState && messages.length < INITIAL_FETCH_LIMIT) {
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
         setStart(true);
       }
       // Apply existing state if present
@@ -299,14 +336,23 @@ export function Messages(props: Props) {
     } catch {
       // Keep track of any failures (and allow retry / other actions)
       setFailure(true);
+<<<<<<< HEAD
+=======
+      setFetching();
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
     }
   }
 
   /**
    * Fetch upwards from current position
+<<<<<<< HEAD
    * @param reposition Callback for ListView
    */
   async function caseFetchUpwards(reposition: (cb: () => void) => void) {
+=======
+   */
+  async function caseFetchUpwards(): Promise<ListView2Update | undefined> {
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
     // Pre-conditions:
     // - Must not already be at the start
     // - Must not already be fetching (or otherwise the fetch must have failed)
@@ -321,7 +367,11 @@ export function Messages(props: Props) {
     try {
       // Fetch messages for channel
       const result = await props.channel.fetchMessagesWithUsers({
+<<<<<<< HEAD
         limit: props.fetchLimit,
+=======
+        limit: FETCH_LIMIT,
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
         // Take the id of the oldest message currently fetched
         before: messages().slice(-1)[0].id,
       });
@@ -330,7 +380,11 @@ export function Messages(props: Props) {
       if (preempted()) return;
 
       // If it's less than we expected, we are at the start
+<<<<<<< HEAD
       if (result.messages.length < (props.fetchLimit ?? DEFAULT_FETCH_LIMIT)) {
+=======
+      if (result.messages.length < FETCH_LIMIT) {
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
         setStart(true);
       }
 
@@ -339,7 +393,11 @@ export function Messages(props: Props) {
         // Calculate how much we need to cut off the other end
         const tooManyBy = Math.max(
           0,
+<<<<<<< HEAD
           result.messages.length + messages().length - (props.limit ?? 0),
+=======
+          result.messages.length + messages().length - DISPLAY_LIMIT,
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
         );
 
         // If it's at least one element, we are no longer at the end
@@ -347,6 +405,7 @@ export function Messages(props: Props) {
           setEnd(false);
         }
 
+<<<<<<< HEAD
         // Append messages to the top
         setMessagesSafely(messages(), result.messages);
 
@@ -366,19 +425,46 @@ export function Messages(props: Props) {
         }
       } else {
         // Mark as fetching has ended
+=======
+        const msgs = messages();
+        return {
+          scrollAnchorId: msgs[msgs.length - 1].id,
+          commitToDOM() {
+            setMessagesSafely(messages(), result.messages);
+
+            if (tooManyBy) {
+              setMessages((prev) => {
+                return prev.slice(tooManyBy);
+              });
+            }
+
+            setFetching();
+          },
+        };
+      } else {
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
         setFetching();
       }
     } catch {
       // Keep track of any failures (and allow retry / other actions)
       setFailure(true);
+<<<<<<< HEAD
+=======
+      setFetching();
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
     }
   }
 
   /**
    * Fetch downwards from current position
+<<<<<<< HEAD
    * @param reposition Callback for ListView
    */
   async function caseFetchDownwards(reposition: (cb: () => void) => void) {
+=======
+   */
+  async function caseFetchDownwards(): Promise<ListView2Update | undefined> {
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
     // Pre-conditions:
     // - Must not already be at the end
     // - Must not already be fetching (or otherwise the fetch must have failed)
@@ -393,7 +479,11 @@ export function Messages(props: Props) {
     try {
       // Fetch messages after the newest message we have
       const result = await props.channel.fetchMessagesWithUsers({
+<<<<<<< HEAD
         limit: props.fetchLimit,
+=======
+        limit: FETCH_LIMIT,
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
         after: messages()[0].id,
         sort: "Oldest",
       });
@@ -402,7 +492,11 @@ export function Messages(props: Props) {
       if (preempted()) return;
 
       // If it's less than we expected, we are at the end
+<<<<<<< HEAD
       if (result.messages.length < (props.fetchLimit ?? DEFAULT_FETCH_LIMIT)) {
+=======
+      if (result.messages.length < FETCH_LIMIT) {
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
         setEnd(true);
       }
 
@@ -411,7 +505,11 @@ export function Messages(props: Props) {
         // Calculate how much we need to cut off the other end
         const tooManyBy = Math.max(
           0,
+<<<<<<< HEAD
           result.messages.length + messages().length - (props.limit ?? 0),
+=======
+          result.messages.length + messages().length - DISPLAY_LIMIT,
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
         );
 
         // If it's at least one element, we are no longer at the start
@@ -419,6 +517,7 @@ export function Messages(props: Props) {
           setStart(false);
         }
 
+<<<<<<< HEAD
         // Append messages to the bottom
         setMessages(() => {
           return [...result.messages.reverse(), ...messages()];
@@ -436,6 +535,22 @@ export function Messages(props: Props) {
           // Mark as fetching has ended
           setFetching();
         }
+=======
+        return {
+          scrollAnchorId: messages()[0].id,
+          commitToDOM() {
+            setMessages(() => {
+              return [...result.messages.reverse(), ...messages()];
+            });
+
+            if (tooManyBy) {
+              setMessages((prev) => prev.slice(0, -tooManyBy));
+            }
+
+            setFetching();
+          },
+        };
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
       } else {
         // Mark as fetching has ended
         setFetching();
@@ -443,6 +558,10 @@ export function Messages(props: Props) {
     } catch {
       // Keep track of any failures (and allow retry / other actions)
       setFailure(true);
+<<<<<<< HEAD
+=======
+      setFetching();
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
     }
   }
 
@@ -488,7 +607,11 @@ export function Messages(props: Props) {
       try {
         // Fetch messages for channel
         const { messages } = await props.channel.fetchMessagesWithUsers({
+<<<<<<< HEAD
           limit: props.fetchLimit,
+=======
+          limit: FETCH_LIMIT,
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
         });
 
         // Cancel if we've been pre-empted
@@ -497,7 +620,11 @@ export function Messages(props: Props) {
         // Check if we're at the start of the conversation
         // NB. this may be counter-intuitive because we are in history but,
         //     this could be a very rare edge case for large moderation actions
+<<<<<<< HEAD
         if (messages.length < (props.fetchLimit ?? DEFAULT_FETCH_LIMIT)) {
+=======
+        if (messages.length < FETCH_LIMIT) {
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
           setStart(true);
         } else {
           setStart(false);
@@ -538,6 +665,10 @@ export function Messages(props: Props) {
       } catch {
         // Keep track of any failures (and allow retry / other actions)
         setFailure(true);
+<<<<<<< HEAD
+=======
+        setFetching();
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
       }
     }
   }
@@ -576,7 +707,11 @@ export function Messages(props: Props) {
     try {
       // Fetch messages for channel
       const { messages } = await props.channel.fetchMessagesWithUsers({
+<<<<<<< HEAD
         limit: props.fetchLimit,
+=======
+        limit: FETCH_LIMIT,
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
         nearby: messageId,
       });
 
@@ -596,11 +731,21 @@ export function Messages(props: Props) {
         scrollToNearestMessage();
 
         // Mark as fetching has ended
+<<<<<<< HEAD
         setFetching();
+=======
+        setTimeout(() => {
+          setFetching();
+        }, 300 /* probably long enough for scroll to finish */);
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
       });
     } catch {
       // Keep track of any failures (and allow retry / other actions)
       setFailure(true);
+<<<<<<< HEAD
+=======
+      setFetching();
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
     }
   }
 
@@ -892,10 +1037,19 @@ export function Messages(props: Props) {
 
   return (
     <>
+<<<<<<< HEAD
       <ListView
         offsetTop={48}
         fetchTop={caseFetchUpwards}
         fetchBottom={caseFetchDownwards}
+=======
+      <ListView2
+        fetchTop={caseFetchUpwards}
+        fetchBottom={caseFetchDownwards}
+        atStart={atStart}
+        atEnd={atEnd}
+        permitFetching={() => typeof fetching() !== "string"}
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
       >
         <Deferred>
           <div>
@@ -928,7 +1082,11 @@ export function Messages(props: Props) {
             </div>
           </div>
         </Deferred>
+<<<<<<< HEAD
       </ListView>
+=======
+      </ListView2>
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
       <Show when={!atEnd()}>
         <AnchorToEnd>
           <JumpToBottom onClick={jumpToBottom} />

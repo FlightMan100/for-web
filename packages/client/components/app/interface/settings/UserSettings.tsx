@@ -11,6 +11,10 @@ import { ColouredText, Column, Text, iconSize } from "@revolt/ui";
 import { Symbol } from "@revolt/ui/components/utils/Symbol";
 
 import MdAccountCircle from "@material-design-icons/svg/outlined/account_circle.svg?component-solid";
+<<<<<<< HEAD
+=======
+import MdCoffee from "@material-design-icons/svg/outlined/coffee.svg?component-solid";
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 import MdLanguage from "@material-design-icons/svg/outlined/language.svg?component-solid";
 import MdLogout from "@material-design-icons/svg/outlined/logout.svg?component-solid";
 import MdMemory from "@material-design-icons/svg/outlined/memory.svg?component-solid";
@@ -180,11 +184,14 @@ const Config: SettingsConfiguration<{ server: Server }> = {
               icon: <MdRateReview {...iconSize(20)} />,
               title: <Trans>Feedback</Trans>,
             },
+<<<<<<< HEAD
             // {
             //   href: "https://wiki.revolt.chat/notes/project/financial-support/",
             //   icon: <MdLocalCafe {...iconSize(20)} />,
             //   title: <Trans>Donate</Trans>,
             // },
+=======
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
           ],
         },
         {
@@ -271,7 +278,11 @@ const Config: SettingsConfiguration<{ server: Server }> = {
             //   title: t("app.special.modals.changelogs.title"),
             // },
             {
+<<<<<<< HEAD
               href: "https://github.com/revoltchat",
+=======
+              href: "https://github.com/stoatchat",
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
               icon: <MdMemory {...iconSize(20)} />,
               title: <Trans>Source Code</Trans>,
             },
@@ -281,6 +292,14 @@ const Config: SettingsConfiguration<{ server: Server }> = {
               title: <Trans>Advanced</Trans>,
             },
             {
+<<<<<<< HEAD
+=======
+              href: "https://ko-fi.com/stoatchat",
+              icon: <MdCoffee {...iconSize(20)} />,
+              title: <Trans>Donate</Trans>,
+            },
+            {
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
               id: "logout",
               icon: (
                 <MdLogout {...iconSize(20)} fill="var(--md-sys-color-error)" />

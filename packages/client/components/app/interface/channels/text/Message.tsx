@@ -107,6 +107,7 @@ export function Message(props: Props) {
       message={props.message}
       onHover={setIsHovering}
       username={
+<<<<<<< HEAD
         <div use:floating={floatingUserMenusFromMessage(props.message)} style={{ display: "inline-flex", "align-items": "center", gap: "4px" }}>
           <Username
             username={props.message.username}
@@ -123,6 +124,19 @@ export function Message(props: Props) {
               }}
             />
           </Show>
+=======
+        <div use:floating={floatingUserMenusFromMessage(props.message)}>
+          <Username
+            username={
+              props.message.masquerade?.name ??
+              props.message.member?.nickname ??
+              props.message.author?.displayName ??
+              props.message.author?.username ??
+              props.message.username
+            }
+            colour={props.message.roleColour!}
+          />
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
         </div>
       }
       avatar={

@@ -14,6 +14,10 @@ import { useQuery } from "@tanstack/solid-query";
 import { styled } from "styled-system/jsx";
 
 import { useClient } from "@revolt/client";
+<<<<<<< HEAD
+=======
+import env from "@revolt/common/lib/env";
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 import {
   CircularProgress,
   TextField,
@@ -101,7 +105,11 @@ function Categories() {
     queryFn: () => {
       const [authHeader, authHeaderValue] = client()!.authenticationHeader;
 
+<<<<<<< HEAD
       return fetch("https://api.gifbox.me/categories?locale=en_US", {
+=======
+      return fetch(`${env.DEFAULT_GIFBOX_URL}/categories?locale=en_US`, {
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
         headers: {
           [authHeader]: authHeaderValue,
         },
@@ -116,7 +124,11 @@ function Categories() {
     queryFn: () => {
       const [authHeader, authHeaderValue] = client()!.authenticationHeader;
 
+<<<<<<< HEAD
       return fetch("https://api.gifbox.me/trending?locale=en_US&limit=1", {
+=======
+      return fetch(`${env.DEFAULT_GIFBOX_URL}/trending?locale=en_US&limit=1`, {
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
         headers: {
           [authHeader]: authHeaderValue,
         },
@@ -220,7 +232,11 @@ function GifSearch(props: { query: string }) {
       const [authHeader, authHeaderValue] = client()!.authenticationHeader;
 
       return fetch(
+<<<<<<< HEAD
         "https://api.gifbox.me/" +
+=======
+        `${env.DEFAULT_GIFBOX_URL}/` +
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
           (props.query === "trending"
             ? `trending?locale=en_US`
             : `search?locale=en_US&query=${encodeURIComponent(props.query)}`),

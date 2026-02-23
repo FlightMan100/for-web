@@ -10,7 +10,11 @@ import { useClient, useClientLifecycle } from "@revolt/client";
 import { State } from "@revolt/client/Controller";
 import { NotificationsWorker } from "@revolt/client/NotificationsWorker";
 import { useModals } from "@revolt/modal";
+<<<<<<< HEAD
 import { Navigate, useBeforeLeave } from "@revolt/routing";
+=======
+import { Navigate, useBeforeLeave, useLocation } from "@revolt/routing";
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 import { useState } from "@revolt/state";
 import { LAYOUT_SECTIONS } from "@revolt/state/stores/Layout";
 import { CircularProgress } from "@revolt/ui";
@@ -25,6 +29,10 @@ const Interface = (props: { children: JSX.Element }) => {
   const client = useClient();
   const { openModal } = useModals();
   const { isLoggedIn, lifecycle } = useClientLifecycle();
+<<<<<<< HEAD
+=======
+  const { pathname } = useLocation();
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 
   useBeforeLeave((e) => {
     if (!e.defaultPrevented) {
@@ -42,7 +50,12 @@ const Interface = (props: { children: JSX.Element }) => {
 
   createEffect(() => {
     if (!isLoggedIn()) {
+<<<<<<< HEAD
       console.info("WAITING... currently", lifecycle.state());
+=======
+      state.layout.setNextPath(pathname);
+      console.debug("WAITING... currently", lifecycle.state());
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
     }
   });
 

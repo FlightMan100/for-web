@@ -91,9 +91,18 @@ export function RenderAnchor(
 
         const internalUrl = () =>
           new URL(
+<<<<<<< HEAD
             channel()!.serverId
               ? `/server/${channel()!.serverId}/channel/${channel()!.id}`
               : `/channel/${channel()!.id}`,
+=======
+            (channel()!.serverId
+              ? `/server/${channel()!.serverId}/channel/${channel()!.id}`
+              : `/channel/${channel()!.id}`) +
+              (params.exactMessage && params.messageId
+                ? `/${params.messageId}`
+                : ""),
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
             location.origin,
           ).toString();
 

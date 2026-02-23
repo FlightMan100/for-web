@@ -115,7 +115,11 @@ export function ServerContextMenu(props: { server: Server }) {
    */
   function openAdminPanel() {
     window.open(
+<<<<<<< HEAD
       `https://legacy-admin.stoatinternal.com/panel/inspect/server/${props.server.id}`,
+=======
+      `https://old-admin.stoatinternal.com/panel/inspect/server/${props.server.id}`,
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
       "_blank",
     );
   }

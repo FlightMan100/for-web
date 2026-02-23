@@ -12,6 +12,10 @@ import MdDelete from "@material-design-icons/svg/outlined/delete.svg?component-s
 import MdLibraryAdd from "@material-design-icons/svg/outlined/library_add.svg?component-solid";
 import MdMarkChatRead from "@material-design-icons/svg/outlined/mark_chat_read.svg?component-solid";
 
+<<<<<<< HEAD
+=======
+import { Symbol } from "@revolt/ui/components/utils/Symbol";
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 import {
   ContextMenu,
   ContextMenuButton,
@@ -62,6 +66,17 @@ export function CategoryContextMenu(props: {
     });
   }
 
+<<<<<<< HEAD
+=======
+  function editCategoryName() {
+    openModal({
+      type: "edit_category",
+      server: props.server,
+      category: props.category,
+    });
+  }
+
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
   /**
    * Copy category id to clipboard
    */
@@ -91,6 +106,17 @@ export function CategoryContextMenu(props: {
         </ContextMenuButton>
       </Show>
       <Show when={props.server.havePermission("ManageChannel")}>
+<<<<<<< HEAD
+=======
+        <ContextMenuButton
+          icon={<Symbol size={16}>edit</Symbol>}
+          onClick={editCategoryName}
+        >
+          <Trans>Rename category</Trans>
+        </ContextMenuButton>
+      </Show>
+      <Show when={props.server.havePermission("ManageChannel")}>
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
         <ContextMenuButton icon={MdDelete} onClick={deleteCategory} destructive>
           <Trans>Delete category</Trans>
         </ContextMenuButton>

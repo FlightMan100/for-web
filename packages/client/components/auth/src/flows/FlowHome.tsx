@@ -8,12 +8,20 @@ import { TransitionType } from "@revolt/client/Controller";
 import { Navigate } from "@revolt/routing";
 import { Button, Column } from "@revolt/ui";
 
+<<<<<<< HEAD
+=======
+import { useState } from "@revolt/state";
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 import Wordmark from "../../../../public/assets/web/wordmark.svg?component-solid";
 
 /**
  * Flow for logging into an account
  */
 export default function FlowHome() {
+<<<<<<< HEAD
+=======
+  const state = useState();
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
   const { lifecycle, isLoggedIn, isError } = useClientLifecycle();
 
   return (
@@ -21,13 +29,22 @@ export default function FlowHome() {
       fallback={
         <>
           <Show when={isLoggedIn()}>
+<<<<<<< HEAD
             <Navigate href="/app" />
+=======
+            <Navigate href={state.layout.popNextPath() ?? "/app"} />
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
           </Show>
 
           <Column gap="xl">
             <Wordmark
               class={css({
+<<<<<<< HEAD
                 width: "100%",
+=======
+                width: "60%",
+                margin: "auto",
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
                 fill: "var(--md-sys-color-on-surface)",
               })}
             />
@@ -54,8 +71,15 @@ export default function FlowHome() {
                 </span>
               </b>
               <span style={{ "text-align": "center", opacity: "0.5" }}>
+<<<<<<< HEAD
                   OtisCord is one of the best ways to stay connected with your
                   friends and community, anywhere, anytime.
+=======
+                <Trans>
+                  Stoat is one of the best ways to stay connected with your
+                  friends and community, anywhere, anytime.
+                </Trans>
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
               </span>
             </Column>
 

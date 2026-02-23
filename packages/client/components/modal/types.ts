@@ -21,6 +21,10 @@ import {
 import { ProtocolV1 } from "stoat.js/lib/events/v1";
 
 import type { SettingsConfigurations } from "@revolt/app";
+<<<<<<< HEAD
+=======
+import { CategoryData } from "@revolt/app/menus/CategoryContextMenu";
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 
 export type Modals =
   | {
@@ -308,4 +312,12 @@ export type Modals =
     }
   | {
       type: "import_theme";
+<<<<<<< HEAD
+=======
+    }
+  | {
+      type: "edit_category";
+      server: Server;
+      category: CategoryData;
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
     };

@@ -4,3 +4,9 @@
 
 # auto-generated files
 **/styled-system/**
+<<<<<<< HEAD
+=======
+
+# test results
+**/test-results/**
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522

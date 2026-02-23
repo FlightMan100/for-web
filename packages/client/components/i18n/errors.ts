@@ -15,7 +15,18 @@ export function useError() {
       (error as { type?: never } | undefined)?.type &&
       typeof (error as { type: never }).type === "string"
     ) {
+<<<<<<< HEAD
       const err = error as API.Error;
+=======
+      const err = error as
+        | API.Error
+        | Exclude<
+            API.Authifier_Error,
+            | { type: "UnknownUser" }
+            | { type: "DatabaseError" }
+            | { type: "InternalError" }
+          >;
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 
       switch (err.type) {
         case "AlreadyFriends":
@@ -90,7 +101,11 @@ export function useError() {
         case "UsernameTaken":
           return t`This username is already taken.`;
         case "TooManyEmoji":
+<<<<<<< HEAD
           return t`You can't have more than {err.max} emojis on this server.`;
+=======
+          return t`You can't have more than ${err.max} emojis on this server.`;
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
         case "TooManyChannels":
           return t`You can't have more than ${err.max} channels on this server.`;
         case "TooManyServers":
@@ -99,6 +114,19 @@ export function useError() {
           return t`You've sent too many friend requests, the maximum is ${err.max}`;
         case "PayloadTooLarge":
           return t`Your message is too long, please remove some characters and try again.`;
+<<<<<<< HEAD
+=======
+        case "ShortPassword":
+          return t`The password is too short.`;
+        case "LockedOut":
+          return t`You have been locked out for entering a wrong password multiple times. Please wait a couple minutes and try again.`;
+        case "CompromisedPassword":
+          return t`This password has previously appeared in security leaks, please use another password.`;
+        case "UnverifiedAccount":
+          return t`This account is not activated! Please check your account's inbox and try again.`;
+        case "TotpAlreadyEnabled":
+          return t`Multi-factor authentication is already enabled for this account.`;
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 
         // unreachable errors (in theory)
         case "FileTooLarge":
@@ -129,6 +157,12 @@ export function useError() {
         case "UnknownUser":
         case "VosoUnavailable":
           return err.type + " " + err.location;
+<<<<<<< HEAD
+=======
+
+        default:
+          return t`Uncaught Stoat error: ${err.type}`;
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
       }
     }
 
@@ -141,6 +175,12 @@ export function useError() {
       if (message) return message;
     }
 
+<<<<<<< HEAD
     return t`Something went wrong! Try again later.`;
+=======
+    return t`Something went wrong! ${error}`;
+    // revert to `Try again later.` later
+    // need to capture envelopes properly
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
   };
 }

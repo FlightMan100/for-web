@@ -25,6 +25,13 @@ export default defineConfig({
     useLingui: ["@lingui-solid/solid", "useLingui"],
     extractors: [extractor],
   },
+<<<<<<< HEAD
+=======
+  formatOptions: {
+    origins: true,
+    lineNumbers: false,
+  },
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
   ...(supressWarningIfWereNotInLinguiExtract
     ? {}
     : {

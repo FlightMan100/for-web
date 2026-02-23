@@ -246,17 +246,29 @@ export default function ServerOverview(props: ServerSettingsProps) {
             placeholder={t`This server is about...`}
           />
           <Text class="title" size="small">
+<<<<<<< HEAD
             System message channels
           </Text>
           <Column>
             <Text class="label">
               User Joined
+=======
+            <Trans>System message channels</Trans>
+          </Text>
+          <Column>
+            <Text class="label">
+              <Trans>User Joined</Trans>
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
             </Text>
             <Form2.TextField.Select
               control={editGroup.controls.sys_user_joined}
             >
               <MenuItem value="none">
+<<<<<<< HEAD
                 Disabled
+=======
+                <Trans>Disabled</Trans>
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
               </MenuItem>
               <For each={channels()}>
                 {(element) => (
@@ -267,11 +279,19 @@ export default function ServerOverview(props: ServerSettingsProps) {
           </Column>
           <Column>
             <Text class="label">
+<<<<<<< HEAD
               User Left
             </Text>
             <Form2.TextField.Select control={editGroup.controls.sys_user_left}>
               <MenuItem value="none">
                 Disabled
+=======
+              <Trans>User Left</Trans>
+            </Text>
+            <Form2.TextField.Select control={editGroup.controls.sys_user_left}>
+              <MenuItem value="none">
+                <Trans>Disabled</Trans>
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
               </MenuItem>
               <For each={channels()}>
                 {(element) => (
@@ -282,7 +302,11 @@ export default function ServerOverview(props: ServerSettingsProps) {
           </Column>
           <Column>
             <Text class="label">
+<<<<<<< HEAD
               User Kicked
+=======
+              <Trans>User Kicked</Trans>
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
             </Text>
             <Form2.TextField.Select
               control={editGroup.controls.sys_user_kicked}

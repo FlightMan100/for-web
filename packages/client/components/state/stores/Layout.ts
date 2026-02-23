@@ -16,6 +16,14 @@ export enum LAYOUT_SECTIONS {
 
 export interface TypeLayout {
   /**
+<<<<<<< HEAD
+=======
+   * URL to redirect to after login
+   */
+  nextPath?: string;
+
+  /**
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
    * The current section of the program we are in
    *
    * This can currently either be:
@@ -77,6 +85,13 @@ export class Layout extends AbstractStore<"layout", TypeLayout> {
   clean(input: Partial<TypeLayout>): TypeLayout {
     const layout: TypeLayout = this.default();
 
+<<<<<<< HEAD
+=======
+    if (typeof input.nextPath === "string") {
+      layout.nextPath = input.nextPath;
+    }
+
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
     if (typeof input.activeInterface === "string") {
       layout.activeInterface = input.activeInterface;
     }
@@ -101,6 +116,18 @@ export class Layout extends AbstractStore<"layout", TypeLayout> {
   }
 
   /**
+<<<<<<< HEAD
+=======
+   * Pop the next redirect path
+   */
+  popNextPath() {
+    const nextUrl = this.get().nextPath;
+    this.set("nextPath", undefined);
+    return nextUrl;
+  }
+
+  /**
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
    * Get the last active path in the app
    */
   getLastActivePath() {
@@ -123,6 +150,16 @@ export class Layout extends AbstractStore<"layout", TypeLayout> {
   }
 
   /**
+<<<<<<< HEAD
+=======
+   * Set the next redirect path
+   */
+  setNextPath(pathname: string) {
+    this.set("nextPath", pathname);
+  }
+
+  /**
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
    * Set the last active path in the app
    */
   setLastActivePath(pathname: string) {

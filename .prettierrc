@@ -1,9 +1,15 @@
 {
   "tabWidth": 2,
   "useTabs": false,
+<<<<<<< HEAD
   "plugins": [
     "@pandabox/prettier-plugin",
     "prettier-plugin-organize-imports"
   ],
   "organizeImportsTypeOrder": "first"
 }
+=======
+  "plugins": ["prettier-plugin-organize-imports"],
+  "organizeImportsTypeOrder": "first"
+}
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522

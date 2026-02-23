@@ -5,8 +5,11 @@ import { Trans, useLingui } from "@lingui-solid/solid/macro";
 import { API, Server, ServerRole } from "stoat.js";
 import { styled } from "styled-system/jsx";
 
+<<<<<<< HEAD
 import { useClient } from "@revolt/client";
 import { CONFIGURATION } from "@revolt/common";
+=======
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 import { useModals } from "@revolt/modal";
 import {
   Button,
@@ -31,7 +34,10 @@ import { ChannelPermissionsEditor } from "../../channel/permissions/ChannelPermi
  */
 export function ServerRoleEditor(props: { context: Server; roleId: string }) {
   const { t } = useLingui();
+<<<<<<< HEAD
   const client = useClient();
+=======
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
   const { openModal } = useModals();
   const { navigate } = useSettingsNavigation();
 
@@ -45,9 +51,12 @@ export function ServerRoleEditor(props: { context: Server; roleId: string }) {
   /* eslint-disable solid/reactivity */
   const editGroup = createFormGroup({
     name: createFormControl(role()?.name || ""),
+<<<<<<< HEAD
     icon: createFormControl<string | File[] | null>(
       role()?.icon?.createFileURL() ?? null,
     ),
+=======
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
     colour: createFormControl(role()?.colour || null),
     hoist: createFormControl(role()?.hoist == true),
   });
@@ -62,6 +71,7 @@ export function ServerRoleEditor(props: { context: Server; roleId: string }) {
       changes.name = editGroup.controls.name.value.trim();
     }
 
+<<<<<<< HEAD
     if (editGroup.controls.icon.isDirty) {
       if (!editGroup.controls.icon.value) {
         if (!changes.remove) changes.remove = [];
@@ -75,6 +85,8 @@ export function ServerRoleEditor(props: { context: Server; roleId: string }) {
       }
     }
 
+=======
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
     if (editGroup.controls.hoist.isDirty) {
       changes.hoist = editGroup.controls.hoist.value;
     }
@@ -88,7 +100,10 @@ export function ServerRoleEditor(props: { context: Server; roleId: string }) {
 
   function onReset() {
     editGroup.controls.name.setValue(role()?.name || "");
+<<<<<<< HEAD
     editGroup.controls.icon.setValue(role()?.icon?.createFileURL() ?? null);
+=======
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
     editGroup.controls.hoist.setValue(role()?.hoist || false);
     editGroup.controls.colour.setValue(role()?.colour || null);
   }
@@ -107,6 +122,7 @@ export function ServerRoleEditor(props: { context: Server; roleId: string }) {
             />
           </Column>
           <Column>
+<<<<<<< HEAD
             <Form2.FileInput
               control={editGroup.controls.icon}
               accept="image/*"
@@ -115,6 +131,8 @@ export function ServerRoleEditor(props: { context: Server; roleId: string }) {
             />
           </Column>
           <Column>
+=======
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
             <Row align>
               <IconButton
                 ref={setPickerRef}

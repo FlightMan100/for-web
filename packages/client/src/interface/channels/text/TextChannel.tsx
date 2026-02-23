@@ -183,7 +183,10 @@ export function TextChannel(props: ChannelPageProps) {
 
           <Messages
             channel={props.channel}
+<<<<<<< HEAD
             limit={150}
+=======
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
             lastReadId={lastId}
             pendingMessages={(pendingProps) => (
               <DraftMessages

@@ -167,11 +167,21 @@ export const ServerList = (props: Props) => {
           </a>
           <UserMenu anchor={menuButton} />
         </Tooltip>
+<<<<<<< HEAD
         <Tooltip placement="right" content="Switch back to legacy app">
           <a href="https://app.revolt.chat" class={entryContainer()}>
             <Symbol>history</Symbol>
           </a>
         </Tooltip>
+=======
+        <Show when={!window.native}>
+          <Tooltip placement="right" content="Switch back to legacy app">
+            <a href="https://app.revolt.chat" class={entryContainer()}>
+              <Symbol>history</Symbol>
+            </a>
+          </Tooltip>
+        </Show>
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
         <For each={props.unreadConversations.slice(0, 9)}>
           {(conversation) => (
             <Tooltip placement="right" content={conversation.displayName}>
@@ -300,6 +310,7 @@ export const ServerList = (props: Props) => {
             <Avatar size={42} fallback={<MdAdd />} />
           </a>
         </Tooltip>
+<<<<<<< HEAD
         <Tooltip placement="right" content="Find new servers to join">
         <a
           href={state.layout.getLastActiveDiscoverPath() ?? "/discover"}
@@ -309,6 +320,18 @@ export const ServerList = (props: Props) => {
           <Avatar size={42} fallback={<MdExplore />} />
         </a>
       </Tooltip>
+=======
+        <Show when={CONFIGURATION.IS_STOAT}>
+          <Tooltip placement="right" content={"Find new servers to join"}>
+            <a
+              href={state.layout.getLastActiveDiscoverPath()}
+              class={entryContainer()}
+            >
+              <Avatar size={42} fallback={<MdExplore />} />
+            </a>
+          </Tooltip>
+        </Show>
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
       </div>
       <Shadow>
         <div />

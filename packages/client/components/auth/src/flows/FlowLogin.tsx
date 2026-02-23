@@ -1,18 +1,36 @@
 import { Match, Switch } from "solid-js";
 
 import { Trans } from "@lingui-solid/solid/macro";
+<<<<<<< HEAD
 import { css } from "styled-system/css";
+=======
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 
 import { useClientLifecycle } from "@revolt/client";
 import { State, TransitionType } from "@revolt/client/Controller";
 import { useModals } from "@revolt/modal";
 import { Navigate } from "@revolt/routing";
+<<<<<<< HEAD
 import { Button, CircularProgress, Column, Row, iconSize } from "@revolt/ui";
 
 import MdArrowBack from "@material-design-icons/svg/filled/arrow_back.svg?component-solid";
 
 import Wordmark from "../../../../public/assets/web/wordmark.svg?component-solid";
 
+=======
+import {
+  Button,
+  CircularProgress,
+  Column,
+  Row,
+  Text,
+  iconSize,
+} from "@revolt/ui";
+
+import MdArrowBack from "@material-design-icons/svg/filled/arrow_back.svg?component-solid";
+
+import { useState } from "@revolt/state";
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 import { FlowTitle } from "./Flow";
 import { Fields, Form } from "./Form";
 
@@ -20,6 +38,10 @@ import { Fields, Form } from "./Form";
  * Flow for logging into an account
  */
 export default function FlowLogin() {
+<<<<<<< HEAD
+=======
+  const state = useState();
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
   const modals = useModals();
   const { lifecycle, isLoggedIn, login, selectUsername } = useClientLifecycle();
 
@@ -54,7 +76,11 @@ export default function FlowLogin() {
       <Switch
         fallback={
           <>
+<<<<<<< HEAD
             <FlowTitle subtitle="Sign into OtisCord" emoji="wave">
+=======
+            <FlowTitle subtitle={<Trans>Sign into Stoat</Trans>} emoji="wave">
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
               <Trans>Welcome!</Trans>
             </FlowTitle>
             <Form onSubmit={performLogin}>
@@ -86,12 +112,17 @@ export default function FlowLogin() {
         }
       >
         <Match when={isLoggedIn()}>
+<<<<<<< HEAD
           <Navigate href="/app" />
+=======
+          <Navigate href={state.layout.popNextPath() ?? "/app"} />
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
         </Match>
         <Match when={lifecycle.state() === State.LoggingIn}>
           <CircularProgress />
         </Match>
         <Match when={lifecycle.state() === State.Onboarding}>
+<<<<<<< HEAD
           <FlowTitle
             subtitle={
               <Trans>
@@ -112,6 +143,19 @@ export default function FlowLogin() {
             </Row>
           </FlowTitle>
 
+=======
+          <FlowTitle>
+            <Trans>Choose a username</Trans>
+          </FlowTitle>
+
+          <Text>
+            <Trans>
+              Pick a username that you want people to be able to find you by.
+              This can be changed later in your user settings.
+            </Trans>
+          </Text>
+
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
           <Form onSubmit={select}>
             <Fields fields={["username"]} />
             <Row align justify>

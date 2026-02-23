@@ -17,6 +17,10 @@ import MdEmojiEmotions from "@material-design-icons/svg/outlined/emoji_emotions.
 import MdMoreVert from "@material-design-icons/svg/outlined/more_vert.svg?component-solid";
 import MdReply from "@material-design-icons/svg/outlined/reply.svg?component-solid";
 
+<<<<<<< HEAD
+=======
+import { startsWithPackPUA } from "@revolt/markdown/emoji/UnicodeEmoji";
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 import { CompositionMediaPicker } from "../composition";
 
 export function MessageToolbar(props: { message?: Message }) {
@@ -61,7 +65,15 @@ export function MessageToolbar(props: { message?: Message }) {
           }
           onTextReplacement={(emoji) =>
             props.message!.react(
+<<<<<<< HEAD
               emoji.startsWith(":") ? emoji.slice(1, emoji.length - 1) : emoji,
+=======
+              emoji.startsWith(":")
+                ? emoji.slice(1, emoji.length - 1)
+                : startsWithPackPUA(emoji)
+                  ? emoji.slice(1)
+                  : emoji,
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
             )
           }
         >

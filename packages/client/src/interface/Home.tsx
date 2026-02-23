@@ -1,5 +1,9 @@
 import { Match, Show, Switch } from "solid-js";
 
+<<<<<<< HEAD
+=======
+import { Trans } from "@lingui-solid/solid/macro";
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 import { PublicChannelInvite } from "stoat.js";
 import { css, cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
@@ -15,7 +19,10 @@ import {
   Header,
   iconSize,
   main,
+<<<<<<< HEAD
   typography,
+=======
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 } from "@revolt/ui";
 
 import MdAddCircle from "@material-design-icons/svg/filled/add_circle.svg?component-solid";
@@ -96,9 +103,15 @@ export function HomePage() {
   const client = useClient();
 
   // check if we're stoat.chat; if so, check if the user is in the Lounge
+<<<<<<< HEAD
   const showLoungeButton = true;
   const isInLounge =
     client()!.servers.get("01KF1Z34B0DRTW1GRWD9QSC106") !== undefined;
+=======
+  const showLoungeButton = CONFIGURATION.IS_STOAT;
+  const isInLounge =
+    client()!.servers.get("01F7ZSBSFHQ8TA81725KQCSDDP") !== undefined;
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 
   return (
     <Base>
@@ -106,6 +119,7 @@ export function HomePage() {
         <HeaderIcon>
           <MdHome {...iconSize(22)} />
         </HeaderIcon>
+<<<<<<< HEAD
         Home
       </Header>
       <div use:scrollable={{ class: content() }}>
@@ -113,6 +127,12 @@ export function HomePage() {
           <span class={typography({ class: "headline" })}>
             Welcome to
           </span>
+=======
+        <Trans>Home</Trans>
+      </Header>
+      <div use:scrollable={{ class: content() }}>
+        <Column>
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
           <Wordmark
             class={css({
               width: "160px",
@@ -130,6 +150,7 @@ export function HomePage() {
                 })
               }
               description={
+<<<<<<< HEAD
                 <>
                   Invite all of your friends, some cool bots, and throw a big
                   party.
@@ -138,10 +159,21 @@ export function HomePage() {
               icon={<MdAddCircle />}
             >
               Create a group or server
+=======
+                <Trans>
+                  Invite all of your friends, some cool bots, and throw a big
+                  party.
+                </Trans>
+              }
+              icon={<MdAddCircle />}
+            >
+              <Trans>Create a group or server</Trans>
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
             </CategoryButton>
             <Switch fallback={null}>
               <Match when={showLoungeButton && isInLounge}>
                 <CategoryButton
+<<<<<<< HEAD
                   onClick={() => navigate("/server/01KF1Z34B0DRTW1GRWD9QSC106")}
                   description={
                     <>
@@ -152,6 +184,18 @@ export function HomePage() {
                   icon={<MdGroups3 />}
                 >
                   Go to the OtisCord Lounge
+=======
+                  onClick={() => navigate("/server/01F7ZSBSFHQ8TA81725KQCSDDP")}
+                  description={
+                    <Trans>
+                      You can report issues and discuss improvements with us
+                      directly here.
+                    </Trans>
+                  }
+                  icon={<MdGroups3 />}
+                >
+                  <Trans>Go to the Stoat Lounge</Trans>
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
                 </CategoryButton>
               </Match>
               <Match when={showLoungeButton && !isInLounge}>
@@ -165,6 +209,7 @@ export function HomePage() {
                       .then((invite) => openModal({ type: "invite", invite }));
                   }}
                   description={
+<<<<<<< HEAD
                     <>
                       You can report issues and discuss improvements with us
                       directly here.
@@ -173,6 +218,16 @@ export function HomePage() {
                   icon={<MdGroups3 />}
                 >
                   Join the OtisCord Lounge
+=======
+                    <Trans>
+                      You can report issues and discuss improvements with us
+                      directly here.
+                    </Trans>
+                  }
+                  icon={<MdGroups3 />}
+                >
+                  <Trans>Join the Stoat Lounge</Trans>
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
                 </CategoryButton>
               </Match>
             </Switch>
@@ -184,6 +239,7 @@ export function HomePage() {
                 )
               }
               description={
+<<<<<<< HEAD
                 <>Support the project by donating - thank you!</>
               }
               icon={<MdPayments />}
@@ -203,6 +259,29 @@ export function HomePage() {
             >
               Discover OtisCord
             </CategoryButton>
+=======
+                <Trans>Support the project by donating - thank you!</Trans>
+              }
+              icon={<MdPayments />}
+            >
+              <Trans>Donate to Stoat</Trans>
+            </CategoryButton>
+          </SeparatedColumn>
+          <SeparatedColumn>
+            <Show when={CONFIGURATION.IS_STOAT}>
+              <CategoryButton
+                onClick={() => navigate("/discover")}
+                description={
+                  <Trans>
+                    Find a community based on your hobbies or interests.
+                  </Trans>
+                }
+                icon={<MdExplore />}
+              >
+                <Trans>Discover Stoat</Trans>
+              </CategoryButton>
+            </Show>
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
             <CategoryButton
               onClick={() =>
                 openModal({
@@ -212,6 +291,7 @@ export function HomePage() {
                 })
               }
               description={
+<<<<<<< HEAD
                 <>
                   Let us know how we can improve our app by giving us feedback.
                 </>
@@ -219,15 +299,34 @@ export function HomePage() {
               icon={<MdRateReview {...iconSize(22)} />}
             >
               Give feedback on OtisCord
+=======
+                <Trans>
+                  Let us know how we can improve our app by giving us feedback.
+                </Trans>
+              }
+              icon={<MdRateReview {...iconSize(22)} />}
+            >
+              <Trans>Give feedback on Stoat</Trans>
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
             </CategoryButton>
             <CategoryButton
               onClick={() => openModal({ type: "settings", config: "user" })}
               description={
+<<<<<<< HEAD
                 <>You can also click the gear icon in the bottom left.</>
               }
               icon={<MdSettings />}
             >
               Open settings
+=======
+                <Trans>
+                  You can also click the gear icon in the bottom left.
+                </Trans>
+              }
+              icon={<MdSettings />}
+            >
+              <Trans>Open settings</Trans>
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
             </CategoryButton>
           </SeparatedColumn>
         </Buttons>

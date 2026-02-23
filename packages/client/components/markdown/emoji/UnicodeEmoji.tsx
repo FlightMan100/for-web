@@ -53,6 +53,16 @@ export const UNICODE_EMOJI_PUA_PACK: Record<string, UnicodeEmojiPacks> = {
   ["\uE0E6"]: "twemoji",
 };
 
+<<<<<<< HEAD
+=======
+export const startsWithPackPUA = (emoji: string) => {
+  if (emoji.startsWith(":")) return false;
+  if (emoji.slice(0, 1).match("[\uE0E0-\uE0E6]")) return true;
+
+  return false;
+};
+
+>>>>>>> addb6b7c84bf3852691f3311470e714bbe9b5522
 export function unicodeEmojiUrl(
   pack: UnicodeEmojiPacks = "fluent-3d",
   text: string,
